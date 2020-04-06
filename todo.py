@@ -4,7 +4,6 @@
 from __future__ import unicode_literals
 from PyQt5.QtWidgets import QMessageBox, QInputDialog
 from PyQt5.QtWidgets import QApplication, QWidget
-from gui import Ui_Widget
 from gui import Ui_Widget, LoginDialog
 
 
@@ -25,12 +24,18 @@ class Zadania(QWidget, Ui_Widget):
             QMessageBox.warning(self, 'Błąd',
                                 'Pusty login lub hasło', QMessageBox.Ok)
             return
-
+        
         QMessageBox.information(self, 'Dane logowania', 'Podano: ' +
                                 login + ' ' + haslo, QMessageBox.Ok)
-
+                                
     def koniec(self):
         self.close()
 
 if __name__ == '__main__':
     import sys
+
+    app = QApplication(sys.argv)
+    okno = Zadania()
+    okno.show()
+    okno.move(350, 200)
+    sys.exit(app.exec_())

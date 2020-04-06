@@ -9,21 +9,27 @@ from PyQt5.QtWidgets import QGridLayout
 
 
 class Ui_Widget(object):
+
     def setupUi(self, Widget):
         Widget.setObjectName("Widget")
+
         # tabelaryczny widok danych
         self.widok = QTableView()
+
         # przyciski Push ###
         self.logujBtn = QPushButton("Za&loguj")
         self.koniecBtn = QPushButton("&Koniec")
+
         # układ przycisków Push ###
         uklad = QHBoxLayout()
         uklad.addWidget(self.logujBtn)
         uklad.addWidget(self.koniecBtn)
+
         # główny układ okna ###
         ukladV = QVBoxLayout(self)
         ukladV.addWidget(self.widok)
         ukladV.addLayout(uklad)
+
         # właściwości widżetu ###
         self.setWindowTitle("Prosta lista zadań")
         self.resize(500, 300)
@@ -71,4 +77,4 @@ class LoginDialog(QDialog):
         dialog.login.setFocus()
         ok = dialog.exec_()
         login, haslo = dialog.loginHaslo()
-        return (login, haslo, ok == QDialog.Accepted) 
+        return (login, haslo, ok == QDialog.Accepted)
